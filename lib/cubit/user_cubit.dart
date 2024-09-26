@@ -30,45 +30,47 @@ class UserCubit extends Cubit<UserState> {
   TextEditingController confirmPassword = TextEditingController();
   SignInModel? user;
 
-  uploadProfilePic(XFile image) {
-    profilePic = image;
-    emit(UploadProfilePic());
-  }
+  // uploadProfilePic(XFile image) {
+  //   profilePic = image;
+  //   emit(UploadProfilePic());
+  // }
 
-  signUp() async {
-    emit(SignUpLoading());
-    final response = await userRepository.signUp(
-      name: signUpName.text,
-      phone: signUpPhoneNumber.text,
-      email: signUpEmail.text,
-      password: signUpPassword.text,
-      confirmPassword: confirmPassword.text,
-      profilePic: profilePic!,
-    );
-    response.fold(
-      (errMessage) => emit(SignUpFailure(errMessage: errMessage)),
-      (signUpModel) => emit(SignUpSuccess(message: signUpModel.message)),
-    );
-  }
+  // signUp() async {
+  //   emit(SignUpLoading());
+  //   final response = await userRepository.signUp(
+  //     name: signUpName.text,
+  //     phone: signUpPhoneNumber.text,
+  //     email: signUpEmail.text,
+  //     password: signUpPassword.text,
+  //     confirmPassword: confirmPassword.text,
+  //     profilePic: profilePic!,
+  //   );
+  //   response.fold(
+  //     (errMessage) => emit(SignUpFailure(errMessage: errMessage)),
+  //     (signUpModel) => emit(SignUpSuccess(message: signUpModel.message)),
+  //   );
+  // }
 
-  signIn() async {
-    emit(SignInLoading());
-    final response = await userRepository.signIn(
-      email: signInEmail.text,
-      password: signInPassword.text,
-    );
-    response.fold(
-      (errMessage) => emit(SignInFailure(errMessage: errMessage)),
-      (signInModel) => emit(SignInSuccess()),
-    );
-  }
+  // signIn() async {
+  //   emit(SignInLoading());
+  //   final response = await userRepository.signIn(
+  //     email: signInEmail.text,
+  //     password: signInPassword.text,
+  //   );
+  //   response.fold(
+  //     (errMessage) => emit(SignInFailure(errMessage: errMessage)),
+  //     (signInModel) => emit(SignInSuccess()),
+  //   );
+  // }
 
-  getUserProfile() async {
-    emit(GetUserLoading());
-    final response = await userRepository.getUserProfile();
-    response.fold(
-      (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
-      (user) => emit(GetUserSuccess(user: user)),
-    );
-  }
+  // getUserProfile() async {
+  //   emit(GetUserLoading());
+  //   final response = await userRepository.getUserProfile();
+  //   response.fold(
+  //     (errMessage) => emit(GetUserFailure(errMessage: errMessage)),
+  //     (user) => emit(GetUserSuccess(user: user)),
+  //   );
+  // }
+
+
 }
